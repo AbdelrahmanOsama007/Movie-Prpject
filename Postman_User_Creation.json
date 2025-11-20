@@ -1,0 +1,59 @@
+{
+  "info": {
+    "name": "Movie Project - User API",
+    "description": "Postman collection for user signup and login",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create User (Sign Up)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john.doe@example.com\",\n  \"password\": \"password123\",\n  \"confirmPassword\": \"password123\",\n  \"age\": 25,\n  \"gender\": \"male\",\n  \"favoriteMovies\": [],\n  \"watchlist\": []\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/user/signup",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "user", "signup"]
+        },
+        "description": "Create a new user account"
+      },
+      "response": []
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"john.doe@example.com\",\n  \"password\": \"password123\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/user/login",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "user", "login"]
+        },
+        "description": "Login with email and password. Returns user data and JWT token."
+      },
+      "response": []
+    }
+  ]
+}
