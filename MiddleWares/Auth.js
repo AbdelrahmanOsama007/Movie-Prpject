@@ -1,7 +1,8 @@
 const jwt = require("jsonwebtoken");
 const ApiError = require("../utils/ApiError.js");
 
-const auth = (req, res, next) => {
+
+const auth = async (req, res, next) => {
   try {
     const authHeader = req.headers.authorization;
 
@@ -18,17 +19,13 @@ const auth = (req, res, next) => {
     }
 
     // Verify token
-    const decoded = jwt.verify(token, process.env.JWT_SECRET || "secret");
+    const decoded = jwt.verify(token, process.env.JWT_SECRET || "secret",(err,decoded)=>{
+
+    });
     req.user = decoded;
     next();
   } catch (error) {
-    if (error.name === "JsonWebTokenError") {
-      return next(new ApiError("Invalid token", 401));
-    }
-    if (error.name === "TokenExpiredError") {
-      return next(new ApiError("Token expired", 401));
-    }
-    return next(new ApiError("Authentication failed", 401));
+   throw new ApiError("Authentication failed", 401);
   }
 };
 
