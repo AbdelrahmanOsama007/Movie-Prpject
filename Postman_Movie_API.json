@@ -312,50 +312,6 @@
         "description": "Get a specific movie by its ID"
       },
       "response": []
-    },
-    {
-      "name": "Get Movie Recommendations",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "Bearer YOUR_TOKEN_HERE",
-            "description": "Replace with your JWT token from login"
-          }
-        ],
-        "url": {
-          "raw": "http://localhost:3000/api/recommendations/movies",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "3000",
-          "path": ["api", "recommendations", "movies"]
-        },
-        "description": "Get personalized movie recommendations based on your favoriteMovies array. Analyzes your favorites to find similar movies by category, actors, and rating preferences."
-      },
-      "response": []
-    },
-    {
-      "name": "Get Recommendations By Category",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "Bearer YOUR_TOKEN_HERE",
-            "description": "Replace with your JWT token from login"
-          }
-        ],
-        "url": {
-          "raw": "http://localhost:3000/api/recommendations/by-category",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "3000",
-          "path": ["api", "recommendations", "by-category"]
-        },
-        "description": "Get movie recommendations based on your favorite categories from favoriteMovies or favcategories"
-      },
-      "response": []
     }
   ]
 }
