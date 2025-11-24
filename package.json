@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "migrate": "node migrations/migrate.js up",
+    "migrate:down": "node migrations/migrate.js down"
   },
   "keywords": [],
   "author": "",

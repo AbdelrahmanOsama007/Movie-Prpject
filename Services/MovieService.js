@@ -12,6 +12,8 @@ const createMovie = async (movieData) => {
 // get all movies paginated
 const getMovies = async (page, limit) => {
     const movies = await Movie.find()
+    .populate("category","name")
+    .populate("actors","name")
     .skip((page - 1) * limit)
     .limit(limit)
     .sort({ rating: -1 })

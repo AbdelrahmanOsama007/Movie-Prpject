@@ -27,7 +27,19 @@ const getMovieById = async (req, res, next) => {
     } catch (error) {
         next(error);
     }
+    const updateMovie = async (req, res, next) => {
+        try {
+            const { id } = req.params;
+            const movieData = req.body;
+            const movie = await MovieService.updateMovie(id, movieData);
+            res.status(200).json({ message: "Movie updated successfully", movie });
+        } catch (error) {
+            next(error);
+        }
+    }
 }
 module.exports = {
     createMovie,
+    getMovies,
+    getMovieById,
 }

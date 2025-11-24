@@ -3,6 +3,8 @@ const app = express();
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const UserRoutes = require("./Routes/Userroutes.js");
+const MovieRoutes = require("./Routes/Movieroutes.js");
+const DummyRoutes = require("./Routes/Dummyroutes.js");
 
 dotenv.config();
 
@@ -21,7 +23,8 @@ mongoose
 const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use("/api/user", UserRoutes);
-
+app.use("/api/movie", MovieRoutes);
+app.use("/api/dummy", DummyRoutes);
 // Error handler middleware (must be last)
 const errorHandler = require("./MiddleWares/ErorrHandler.js");
 app.use(errorHandler);
