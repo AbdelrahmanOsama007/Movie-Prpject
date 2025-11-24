@@ -20,9 +20,9 @@ const createUser = async (req, res, next) => {
 
 const login = async (req, res, next) => {
   try {
-    const userData = req.body;
-    const user = await LoginService.login(userData.email, userData.password);
-    res.status(200).json({ message: "Login successful",token: user.token });
+    const { email, password } = req.body;
+    const { user, token } = await LoginService.login(email, password);
+    res.status(200).json({ message: "Login successful", token });
   } catch (error) {
     next(error);
   }

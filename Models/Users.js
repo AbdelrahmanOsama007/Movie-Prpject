@@ -24,6 +24,10 @@ const Schema = mongoose.Schema({
     ref: "Movie",
     default: [],
   },
+  favcategories: {
+    type: [String],
+    default: [],
+  },
   age: {
     type: Number,
     required: true,
