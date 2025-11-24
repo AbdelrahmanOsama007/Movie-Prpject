@@ -12,7 +12,7 @@ const login = async (email, password) => {
     throw new ApiError("Invalid password", 401);
   }
   const token = jwt.sign(
-    { username: user.name, role: user.role },
+    { id: user._id.toString(), username: user.name, role: user.role },
     process.env.JWT_SECRET || "secret",
     { expiresIn: "1h" }
   );
